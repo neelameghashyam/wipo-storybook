@@ -1,0 +1,30 @@
+.flag-atom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &--small { width: 24px; height: 18px; }
+  &--medium { width: 38px; height: 28px; }
+  &--large { width: 60px; height: 45px; }
+
+  &--circle {
+    border-radius: 50%;
+    &.flag-atom--medium { width: 38px; height: 38px; }
+  }
+
+  &--rectangle { border-radius: 4px; }
+}
+
+.flag-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e0e0;
+  border: 2px solid #dde7e3;
+  font-size: 10px;
+  font-weight: 600;
+  color: #666;
+}

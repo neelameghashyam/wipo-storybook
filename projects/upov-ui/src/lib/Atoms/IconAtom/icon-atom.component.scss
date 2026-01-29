@@ -1,0 +1,16 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-atom {
+  &--small { font-size: 18px; width: 18px; height: 18px; }
+  &--medium { font-size: 24px; width: 24px; height: 24px; }
+  &--large { font-size: 36px; width: 36px; height: 36px; }
+  
+  &--primary { color: var(--color-primary-green-dark, #1f4e45); }
+  &--accent { color: var(--color-accent, #ff6b35); }
+  &--warn { color: var(--color-warn, #dc3545); }
+  &--inherit { color: inherit; }
+}

@@ -1,0 +1,16 @@
+.badge-atom {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  &--small { font-size: 10px; padding: 2px 8px; }
+  &--medium { font-size: 12px; padding: 4px 12px; }
+  
+  &--success { background-color: #d4edda; color: #155724; }
+  &--info { background-color: #d1ecf1; color: #0c5460; }
+  &--warning { background-color: #fff3cd; color: #856404; }
+  &--default { background-color: #e2e3e5; color: #383d41; }
+}

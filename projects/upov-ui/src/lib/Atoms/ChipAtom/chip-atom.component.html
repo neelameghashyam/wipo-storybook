@@ -1,0 +1,13 @@
+<mat-chip
+  [highlighted]="selected()"
+  [color]="color()"
+  (click)="onClick()"
+  class="chip-atom">
+  @if (icon()) {
+    <mat-icon matChipAvatar>{{ icon() }}</mat-icon>
+  }
+  {{ label() }}
+  @if (removable()) {
+    <mat-icon matChipRemove (click)="onRemove($event)">close</mat-icon>
+  }
+</mat-chip>
