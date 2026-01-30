@@ -1,10 +1,10 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
-import { IconAtom } from '../lib/Atoms/IconAtom/icon-atom.component';
+import { IconAtom } from '../../lib/Atoms/IconAtom/icon-atom.component';
 import { MatIconModule } from '@angular/material/icon';
 
 
 const meta: Meta<IconAtom> = {
-  title: 'Atoms/IconAtom',
+  title: 'Atoms/Icon',
   component: IconAtom,
   decorators: [
     moduleMetadata({

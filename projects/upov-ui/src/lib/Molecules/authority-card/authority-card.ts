@@ -6,23 +6,24 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'upov-authority-card',
   standalone: true,
   imports: [CommonModule, MatIconModule],
-  templateUrl: './authority-card.component.html',
-  styleUrls: ['./authority-card.component.scss'],
+  templateUrl: './authority-card.html',
+  styleUrls: ['./authority-card.scss'],
+
 })
+
 export class AuthorityCard {
   @Input() countryName = '';
-  @Input() isoCode = '';
-  @Input() flagUrl: string | null = null;
+  @Input() countryIso = '';
+  @Input() flagUrl = '';
 
   @Input() authorityName = '';
   @Input() department = '';
 
-  @Input() email = '';
-  @Input() phone = '';
-  @Input() website = '';
+  @Input() phone?: string;
+  @Input() email?: string;
+  @Input() website?: string;
 
-  @Input() badge: string | null = null;
-  @Input() clickable = false;
-
+  @Input() coverageType?: string;
+  @Input() memberSince?: string;
+  
 }
-

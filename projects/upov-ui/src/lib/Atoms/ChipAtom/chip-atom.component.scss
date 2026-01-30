@@ -1,24 +1,262 @@
+/* =========================================================
+   CHIP ATOM - GENIE DESIGN SYSTEM
+   ========================================================= */
+
 :host {
   display: inline-block;
 }
 
+/* =========================================================
+   BASE CHIP STYLES
+   ========================================================= */
 .chip-atom {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  font-family: 'Figtree', 'Roboto', sans-serif;
+  font-weight: 500;
+  line-height: 1;
+  box-sizing: border-box;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease;
+  user-select: none;
+  position: relative;
 
-  &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  &:focus-visible {
+    outline: 2px solid #1c4240;
+    outline-offset: 2px;
   }
 
-  mat-icon {
-    &[matChipRemove] {
-      opacity: 0.6;
-      transition: opacity 0.2s;
+  &:active:not(.chip-atom--disabled) {
+    transform: scale(0.98);
+  }
+}
 
-      &:hover {
-        opacity: 1;
-      }
+/* =========================================================
+   SIZE VARIANTS
+   ========================================================= */
+.chip-atom--small {
+  height: 24px;
+  padding: 4px 8px;
+  font-size: 12px;
+
+  .chip-atom__icon {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+  }
+
+  .chip-atom__remove-icon {
+    width: 12px;
+    height: 12px;
+    font-size: 12px;
+  }
+}
+
+.chip-atom--medium {
+  height: 32px;
+  padding: 8px 12px;
+  font-size: 14px;
+
+  .chip-atom__icon {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+  }
+
+  .chip-atom__remove-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+  }
+}
+
+.chip-atom--large {
+  height: 40px;
+  padding: 10px 16px;
+  font-size: 16px;
+
+  .chip-atom__icon {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+  }
+
+  .chip-atom__remove-icon {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+  }
+}
+
+/* =========================================================
+   COLOR VARIANTS
+   ========================================================= */
+
+/* Default - Genie Yellow-Lime */
+.chip-atom--default {
+  background: #dade14;
+  color: #1c4240;
+  border: 1px solid transparent;
+
+  &:hover:not(.chip-atom--disabled) {
+    background: #c9cd12;
+    box-shadow: 0 2px 4px rgba(28, 66, 64, 0.1);
+  }
+
+  .chip-atom__icon,
+  .chip-atom__remove-icon {
+    color: #1c4240;
+  }
+
+  .chip-atom__remove {
+    &:hover:not(:disabled) {
+      background: rgba(28, 66, 64, 0.1);
     }
+  }
+}
+
+/* Outlined */
+.chip-atom--outlined {
+  background: transparent;
+  color: #1c4240;
+  border: 2px solid #1c4240;
+
+  &:hover:not(.chip-atom--disabled) {
+    background: rgba(218, 222, 20, 0.08);
+  }
+
+  .chip-atom__icon,
+  .chip-atom__remove-icon {
+    color: #1c4240;
+  }
+
+  .chip-atom__remove {
+    &:hover:not(:disabled) {
+      background: rgba(28, 66, 64, 0.1);
+    }
+  }
+}
+
+/* Tonal */
+.chip-atom--tonal {
+  background: #e4f2e7;
+  color: #1c4240;
+  border: 1px solid #1c4240;
+
+  &:hover:not(.chip-atom--disabled) {
+    background: #d4e2d7;
+  }
+
+  .chip-atom__icon,
+  .chip-atom__remove-icon {
+    color: #1c4240;
+  }
+
+  .chip-atom__remove {
+    &:hover:not(:disabled) {
+      background: rgba(28, 66, 64, 0.1);
+    }
+  }
+}
+
+/* =========================================================
+   DISABLED STATE
+   ========================================================= */
+.chip-atom--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* =========================================================
+   CHIP ELEMENTS
+   ========================================================= */
+.chip-atom__label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.chip-atom__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.chip-atom__icon--left {
+  margin-left: -4px;
+}
+
+.chip-atom__icon--right {
+  margin-right: -4px;
+}
+
+/* =========================================================
+   REMOVE BUTTON
+   ========================================================= */
+.chip-atom__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  margin-right: -4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+
+  &:focus-visible {
+    outline: 2px solid #1c4240;
+    outline-offset: 1px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.chip-atom__remove-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .chip-atom {
+    transition: none;
+  }
+
+  .chip-atom__remove {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================= */
+@media (max-width: 768px) {
+  .chip-atom--medium {
+    height: 36px;
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+
+  .chip-atom--large {
+    height: 44px;
+    padding: 12px 18px;
+    font-size: 17px;
   }
 }

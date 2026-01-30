@@ -1,9 +1,9 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
-import { SpinnerAtom } from '../lib/Atoms/SpinnerAtom/spinner-atom.component';
+import { SpinnerAtom } from '../../lib/Atoms/SpinnerAtom/spinner-atom.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const meta: Meta<SpinnerAtom> = {
-  title: 'Atoms/SpinnerAtom',
+  title: 'Atoms/Spinner',
   component: SpinnerAtom,
   decorators: [
     moduleMetadata({

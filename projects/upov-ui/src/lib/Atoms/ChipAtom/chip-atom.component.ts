@@ -1,57 +1,85 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
-import { MatChipsModule } from '@angular/material/chips';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+
+export type ChipVariant = 'default' | 'outlined' | 'tonal';
+export type ChipSize = 'small' | 'medium' | 'large';
 
 @Component({
   selector: 'upov-chip-atom',
   standalone: true,
-  imports: [MatChipsModule, MatIconModule],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './chip-atom.component.html',
-  styleUrl: './chip-atom.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './chip-atom.component.scss'
 })
-export class ChipAtom {
+export class ChipAtomComponent {
   /**
-   * Chip label text
+   * The label text displayed on the chip
    */
-  label = input.required<string>();
+  @Input() label: string = '';
 
   /**
-   * Whether chip is removable
+   * Visual variant of the chip
+   * - 'default': Yellow-lime background (Genie style)
+   * - 'outlined': Transparent with border
+   * - 'tonal': Subtle background
    */
-  removable = input<boolean>(false);
+  @Input() variant: ChipVariant = 'default';
 
   /**
-   * Whether chip is highlighted/selected
+   * Size of the chip
+   * - 'small': 24px height
+   * - 'medium': 32px height (Genie default)
+   * - 'large': 40px height
    */
-  selected = input<boolean>(false);
+  @Input() size: ChipSize = 'medium';
 
   /**
-   * Chip color
+   * Whether the chip can be removed
    */
-  color = input<'primary' | 'accent' | 'warn' | undefined>(undefined);
+  @Input() removable: boolean = true;
 
   /**
-   * Optional icon to display
+   * Whether the chip is disabled
    */
-  icon = input<string>('');
+  @Input() disabled: boolean = false;
 
   /**
-   * Emits when chip is removed
+   * Custom icon to display (Material icon name)
    */
-  removed = output<void>();
+  @Input() icon?: string;
 
   /**
-   * Emits when chip is clicked
+   * Whether to show the icon on the left side
    */
-  clicked = output<void>();
+  @Input() iconPosition: 'left' | 'right' = 'left';
 
+  /**
+   * Emitted when the remove button is clicked
+   */
+  @Output() removed = new EventEmitter<void>();
+
+  /**
+   * Emitted when the chip is clicked
+   */
+  @Output() chipClick = new EventEmitter<void>();
+
+  /**
+   * Handle remove button click
+   */
   onRemove(event: Event): void {
     event.stopPropagation();
-    this.removed.emit();
+    if (!this.disabled) {
+      this.removed.emit();
+    }
   }
 
+  /**
+   * Handle chip click
+   */
   onClick(): void {
-    this.clicked.emit();
+    if (!this.disabled) {
+      this.chipClick.emit();
+    }
   }
 }

@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/angular';
 import {moduleMetadata} from '@storybook/angular';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import {Button1} from '../lib/Atoms/button/button';
+import {Button1} from '../../lib/Atoms/button/button';
 
 const meta: Meta<Button1> = {
   title: 'Atoms/Button',

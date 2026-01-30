@@ -1,0 +1,57 @@
+<div class="authority-card">
+
+  <!-- Top -->
+  <div class="top-row">
+    <div class="country-info">
+      <h3>{{ countryName }} <span>({{ countryIso }})</span></h3>
+      <span class="pill">{{ coverageType }}</span>
+    </div>
+
+    <div class="flag">
+      <img
+        *ngIf="flagUrl"
+        [src]="flagUrl"
+        [alt]="countryName"
+        (error)="flagUrl = ''"
+      />
+    </div>
+  </div>
+
+  <!-- Authority -->
+
+  <div class="wid">
+
+    <div class="bottom-row">
+
+     <div class="info-row">
+    <mat-icon>person</mat-icon>
+    <span>{{ authorityName }}</span>
+  </div>
+
+      <div class="info-row" *ngIf="phone">
+      <mat-icon>phone</mat-icon>
+      <span>{{ phone }}</span>
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+  <div class="bottom-row">
+
+      <div class="info-row" *ngIf="email">
+    <mat-icon>email</mat-icon>
+    <span class="link">{{ email }}</span>
+  </div>
+
+    <div class="rights">
+      <mat-icon>verified</mat-icon>
+      <span>Plant Breeder's Rights</span>
+    </div>
+  </div>
+
+
+
+  </div>
+
+
+</div>

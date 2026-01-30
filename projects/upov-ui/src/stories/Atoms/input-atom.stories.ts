@@ -1,5 +1,5 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
-import { InputAtom } from '../lib/Atoms/InputAtom/input-atom.component';
+import { InputAtom } from '../../lib/Atoms/InputAtom/input-atom.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 
 const meta: Meta<InputAtom> = {
-  title: 'Atoms/InputAtom',
+  title: 'Atoms/Input',
   component: InputAtom,
   decorators: [
     moduleMetadata({

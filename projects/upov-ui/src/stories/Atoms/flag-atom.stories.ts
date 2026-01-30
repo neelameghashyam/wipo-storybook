@@ -1,8 +1,8 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
-import { FlagAtom } from '../lib/Atoms/FlagAtom/flag-atom.component';
+import { FlagAtom } from '../../lib/Atoms/FlagAtom/flag-atom.component';
 
 const meta: Meta<FlagAtom> = {
-  title: 'Atoms/FlagAtom',
+  title: 'Atoms/Flag',
   component: FlagAtom,
   decorators: [
     moduleMetadata({
@@ -78,15 +78,15 @@ export const Default: Story = {
   args: {
     isoCode: 'NL',
     size: 'medium',
-    shape: 'rectangle',
+    shape: 'circle',
   },
 };
 
-export const Circle: Story = {
+export const Rectangle: Story = {
   args: {
-    isoCode: 'FR',
+    isoCode: 'NL',
     size: 'medium',
-    shape: 'circle',
+    shape: 'rectangle',
   },
 };
 

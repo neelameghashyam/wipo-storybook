@@ -1,8 +1,8 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
-import { BadgeAtom } from '../lib/Atoms/BadgeAtom/badge-atom.component';
+import { BadgeAtom } from '../../lib/Atoms/BadgeAtom/badge-atom.component';
 
 const meta: Meta<BadgeAtom> = {
-  title: 'Atoms/BadgeAtom',
+  title: 'Atoms/Badge',
   component: BadgeAtom,
   decorators: [
     moduleMetadata({
@@ -66,7 +66,7 @@ type Story = StoryObj<BadgeAtom>;
 export const Default: Story = {
   args: {
     label: 'Updated',
-    variant: 'success',
+    variant: 'default',
     size: 'small',
   },
 };
@@ -153,25 +153,6 @@ export const MultipleStatuses: Story = {
           <span>Solanum lycopersicum</span>
           <upov-badge-atom label="Draft" variant="default"></upov-badge-atom>
         </div>
-      </div>
-    `,
-  }),
-};
-
-export const InSpeciesCard: Story = {
-  render: () => ({
-    template: `
-      <div style="width: 300px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-        <div style="padding: 16px;">
-          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-            <span style="font-weight: 600; color: #1f4e45;">ROSA_HYB</span>
-            <upov-badge-atom label="Updated" variant="success" size="small"></upov-badge-atom>
-          </div>
-          <h3 style="margin: 0 0 4px 0; font-size: 18px;">Rosa hybrida</h3>
-          <p style="margin: 0 0 8px 0; font-size: 14px; color: #666;">Hybrid Tea Rose</p>
-          <p style="margin: 0; font-size: 12px; color: #999;">Family: Rosaceae</p>
-        </div>
-        <div style="height: 120px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
       </div>
     `,
   }),
