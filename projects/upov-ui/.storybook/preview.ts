@@ -1,7 +1,7 @@
-import type {Preview} from '@storybook/angular';
-import {applicationConfig} from '@storybook/angular';
-import {setCompodocJson} from '@storybook/addon-docs/angular';
-import {provideUpovUi} from '../src/lib/upov-ui';
+import type { Preview } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { setCompodocJson } from '@storybook/addon-docs/angular';
+import { provideUpovUi } from '../src/lib/upov-ui';
 import docJson from '../documentation.json';
 
 setCompodocJson(docJson);
@@ -9,18 +9,35 @@ setCompodocJson(docJson);
 const preview: Preview = {
   decorators: [
     applicationConfig({
-      providers: [
-        provideUpovUi(),
-      ],
+      providers: [provideUpovUi()],
     }),
   ],
+
   parameters: {
-    backgrounds: {
-      options: {
-        light: {name: 'Light', value: 'var(--color-bg-light)'},
-        dark: {name: 'Dark', value: 'var(--color-primary-green-dark)'},
+    options: {
+      storySort: {
+        order: [
+          'Configure your project',
+          'Getting Started',
+          'Design System',
+          'Atoms',
+          'Molecules',
+          'Organisms',
+          'Components',
+          'Layout',
+          'Directives',
+          'Templates',
+        ],
       },
     },
+
+    backgrounds: {
+      options: {
+        light: { name: 'Light', value: 'var(--color-bg-light)' },
+        dark: { name: 'Dark', value: 'var(--color-primary-green-dark)' },
+      },
+    },
+
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -28,8 +45,9 @@ const preview: Preview = {
       },
     },
   },
+
   initialGlobals: {
-    backgrounds: {value: 'light'},
+    backgrounds: { value: 'light' },
   },
 };
 

@@ -1,10 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { moduleMetadata } from '@storybook/angular';
-import { PaginationComponent } from '../lib/Molecules/pagination/pagination';
+import { applicationConfig, moduleMetadata } from '@storybook/angular';
+import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
+import { PaginationComponent } from '../lib/Molecules/pagination/pagination';
 
+/**
+ * Storybook configuration for Pagination component
+ */
 const meta: Meta<PaginationComponent> = {
   title: 'Molecules/Pagination',
   component: PaginationComponent,
@@ -14,16 +17,72 @@ const meta: Meta<PaginationComponent> = {
         CommonModule,
         MatIconModule,
         MatButtonModule,
-        PaginationComponent
+        PaginationComponent,
       ],
+    }),
+    applicationConfig({
+      providers: [],
     }),
   ],
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: `
+A pagination component used to navigate through large datasets.
+Supports page buttons, ellipsis handling, and page selection dropdown.
+
+## Usage in Consumer App
+
+\`\`\`typescript
+import { PaginationComponent } from 'upov-ui';
+
+@Component({
+  imports: [PaginationComponent],
+  template: \`
+    <upov-pagination
+      [currentPage]="page"
+      [totalItems]="120"
+      [itemsPerPage]="15"
+      (pageChange)="page = $event"
+    ></upov-pagination>
+  \`
+})
+export class MyComponent {
+  page = 1;
+}
+\`\`\`
+
+### Required Imports
+- \`PaginationComponent\` from 'upov-ui'
+        `,
+      },
+    },
+  },
   argTypes: {
-    currentPage: { control: 'number' },
-    totalItems: { control: 'number' },
-    itemsPerPage: { control: 'number' },
-    pageChange: { action: 'pageChange' },
+    currentPage: {
+      control: 'number',
+      description: 'Current active page',
+    },
+    totalItems: {
+      control: 'number',
+      description: 'Total number of items',
+    },
+    itemsPerPage: {
+      control: 'number',
+      description: 'Number of items per page',
+    },
+    maxPagesToShow: {
+      control: 'number',
+      description: 'Maximum page buttons visible',
+    },
+    pageChange: {
+      action: 'pageChange',
+      description: 'Emits when page changes',
+      table: {
+        category: 'Events',
+      },
+    },
   },
 };
 
