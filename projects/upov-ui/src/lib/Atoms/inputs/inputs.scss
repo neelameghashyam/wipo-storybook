@@ -1,188 +1,170 @@
 .input-container {
   display: inline-block;
   width: 220px;
+  font-family: 'Figtree', sans-serif;
 
+  /* wrapper */
   .input-wrapper {
     box-sizing: border-box;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    padding: 0px 12px;
+    padding: 0 12px;
     gap: 8px;
     height: 40px;
     background: #ffffff;
     border: 1px solid #1c4240;
     border-radius: 4px;
     position: relative;
+  }
+
+  /* input field */
+  .input-field {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    font-size: 16px;
+    line-height: 19px;
+    color: #727272;
+
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &::placeholder {
+      color: #727272;
+    }
+
+    &:disabled {
+      color: #727272;
+      cursor: not-allowed;
+    }
+  }
+
+  /* main chevron */
+  .chevron-icon,
+  .chevron-icon-small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 100%;
+  }
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    display: block;
+    color: #1c4240;
+  }
+
+  /* ================= PHONE INPUT ================= */
+
+  &.type-phone {
+    .phone-input {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .flag-section {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      gap: 6px;
+    }
+
+    .flag-icon {
+      width: 28px;
+      height: 20px;
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid #e2e2e2;
+
+      img,
+      .flag-au {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .country-code {
+      font-size: 16px;
+      color: #727272;
+      display: flex;
+      align-items: center;
+    }
+
+    .phone-field {
+      flex: 1;
+    }
+  }
+
+  /* ================= VARIANTS ================= */
+
+  /* default */
+  &.variant-default .input-wrapper {
+    border: 1px solid #1c4240;
 
     .input-field {
-      flex: 1;
-      border: none;
-      outline: none;
-      background: transparent;
-      font-family: 'Figtree', sans-serif;
-      font-style: normal;
       font-weight: 400;
-      font-size: 16px;
-      line-height: 19px;
       color: #727272;
+    }
+  }
+
+  /* filled */
+  &.variant-filled .input-wrapper {
+    border: 1px solid #1c4240;
+
+    .input-field {
+      font-weight: 500;
+      color: #303030;
+    }
+
+    .country-code {
+      font-weight: 500;
+      color: #303030;
+    }
+  }
+
+  /* focused — NO layout shift */
+  &.variant-focused .input-wrapper {
+    border: 1px solid #547f71;
+    outline: 2px solid #547f71;
+    outline-offset: 0;
+    box-shadow: 0px 1px 12px -3px #e3fff7;
+
+    .input-field {
+      font-weight: 500;
+      color: #303030;
+    }
+
+    .country-code {
+      font-weight: 500;
+      color: #303030;
+    }
+  }
+
+  /* disabled */
+  &.variant-disabled .input-wrapper {
+    background: #f9f9f9;
+    border: 1px solid #727272;
+
+    .input-field {
+      color: #727272;
+      cursor: not-allowed;
 
       &::placeholder {
         color: #727272;
       }
-
-      &:disabled {
-        color: #727272;
-        cursor: not-allowed;
-      }
     }
 
-    .chevron-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-
-      mat-icon {
-        width: 16px;
-        height: 16px;
-        font-size: 16px;
-        color: #1c4240;
-      }
-    }
-
-    // Phone input specific styles
-    &.phone-input {
-      .flag-section {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .flag-icon {
-        width: 28px;
-        height: 24px;
-        border-radius: 2px;
-        position: relative;
-        overflow: hidden;
-        border: 0.125px solid #e2e2e2;
-
-        .flag-au {
-          width: 100%;
-          height: 100%;
-          background-image: url('https://flagcdn.com/w80/au.png');
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-        }
-      }
-
-      .chevron-icon-small {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 24px;
-        height: 24px;
-
-        mat-icon {
-          width: 16px;
-          height: 16px;
-          font-size: 16px;
-          color: #1c4240;
-        }
-      }
-
-      .country-code {
-        font-family: 'Figtree', sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 19px;
-        color: #727272;
-      }
-
-      .phone-field {
-        flex: 1;
-      }
-    }
-  }
-
-  // Variant: Default
-  &.variant-default {
-    .input-wrapper {
-      background: #ffffff;
-      border: 1px solid #1c4240;
-
-      .input-field {
-        font-weight: 400;
-        color: #727272;
-      }
-    }
-  }
-
-  // Variant: Filled
-  &.variant-filled {
-    .input-wrapper {
-      background: #ffffff;
-      border: 1px solid #1c4240;
-
-      .input-field {
-        font-weight: 500;
-        color: #303030;
-      }
-
-      &.phone-input {
-        .country-code {
-          font-weight: 500;
-          color: #303030;
-        }
-      }
-    }
-  }
-
-  // Variant: Focused
-  &.variant-focused {
-    .input-wrapper {
-      background: #ffffff;
-      border: 2px solid #547f71;
-      box-shadow: 0px 1px 12px -3px #e3fff7;
-      padding: 0px 11px; // Adjust for 2px border
-
-      .input-field {
-        font-weight: 500;
-        color: #303030;
-      }
-
-      &.phone-input {
-        .country-code {
-          font-weight: 500;
-          color: #303030;
-        }
-      }
-    }
-  }
-
-  // Variant: Disabled
-  &.variant-disabled {
-    .input-wrapper {
-      background: #f9f9f9;
-      border: 1px solid #727272;
-
-      .input-field {
-        font-weight: 500;
-        color: #727272;
-        cursor: not-allowed;
-
-        &::placeholder {
-          color: #727272;
-        }
-      }
-
-      .chevron-icon mat-icon,
-      .chevron-icon-small mat-icon {
-        color: #727272;
-      }
+    mat-icon {
+      color: #727272;
     }
   }
 }
