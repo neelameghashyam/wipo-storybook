@@ -1,4 +1,4 @@
-import type {Meta, StoryObj} from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
 
 interface TypographyArgs {
   content: string;
@@ -19,35 +19,93 @@ export default meta;
 type Story = StoryObj<TypographyArgs>;
 
 /**
- * Display all heading styles (H1, H2, H3) with their respective font sizes and line heights.
+ * Typography System Overview
+ * 
+ * Figtree is the primary typeface for all UPOV PRISM applications.
+ * This design system provides a comprehensive set of heading styles, body text variations,
+ * and special text styles for different use cases.
+ */
+
+/**
+ * Heading styles following the UPOV design system.
+ * Five heading levels with specific font sizes, weights, and use cases.
  */
 export const Headings: Story = {
   args: {
-    content: 'The quick brown fox jumps over the lazy dog',
+    content: 'Heading 1 - Display',
   },
   render: (args) => ({
     props: args,
     template: `
-      <div style="padding: 2rem;">
-        <div style="margin-bottom: 2rem;">
-          <h1>${args.content}</h1>
-          <p style="color: var(--color-neutral-600); font-size: 0.875rem; margin-top: 0.5rem;">
-            H1 - Font size: var(--h1-font-size) / 1.75rem, Line height: var(--h1-line-height) / 1.2em, Weight: 700
-          </p>
+      <div style="padding: 24px; background: #F9F9F9; border-radius: 10px;">
+        <!-- Heading 1 - Display -->
+        <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E5E5; margin-bottom: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              48px / Bold
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <h1 style="font-family: 'Figtree'; font-weight: 700; font-size: 48px; line-height: 72px; color: #1C4240; margin: 0;">
+              Heading 1 - Display
+            </h1>
+          </div>
         </div>
 
-        <div style="margin-bottom: 2rem;">
-          <h2>${args.content}</h2>
-          <p style="color: var(--color-neutral-600); font-size: 0.875rem; margin-top: 0.5rem;">
-            H2 - Font size: var(--h2-font-size) / 1.5rem, Line height: var(--h2-line-height) / 1.2em, Weight: 700
-          </p>
+        <!-- Heading 2 - Page Title -->
+        <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E5E5; margin-bottom: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              32px / Bold
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <h2 style="font-family: 'Figtree'; font-weight: 700; font-size: 32px; line-height: 48px; color: #1C4240; margin: 0;">
+              Heading 2 - Page Title
+            </h2>
+          </div>
         </div>
 
-        <div style="margin-bottom: 2rem;">
-          <h3>${args.content}</h3>
-          <p style="color: var(--color-neutral-600); font-size: 0.875rem; margin-top: 0.5rem;">
-            H3 - Font size: var(--h3-font-size) / 1.37rem, Line height: var(--h3-line-height) / 1.2em, Weight: 700
-          </p>
+        <!-- Heading 3 - Section Title -->
+        <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E5E5; margin-bottom: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              24px / Bold
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <h3 style="font-family: 'Figtree'; font-weight: 700; font-size: 24px; line-height: 36px; color: #1C4240; margin: 0;">
+              Heading 3 - Section Title
+            </h3>
+          </div>
+        </div>
+
+        <!-- Heading 4 - Subsection -->
+        <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E5E5; margin-bottom: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              20px / Bold
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <h4 style="font-family: 'Figtree'; font-weight: 700; font-size: 20px; line-height: 30px; color: #303030; margin: 0;">
+              Heading 4 - Subsection
+            </h4>
+          </div>
+        </div>
+
+        <!-- Heading 5 - Card Title -->
+        <div style="display: flex; align-items: center; gap: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              18px / SemiBold
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <h5 style="font-family: 'Figtree'; font-weight: 600; font-size: 18px; line-height: 27px; color: #1C4240; margin: 0;">
+              Heading 5 - Card Title
+            </h5>
+          </div>
         </div>
       </div>
     `,
@@ -55,35 +113,127 @@ export const Headings: Story = {
 };
 
 /**
- * Heading utility classes that can be applied to any element.
+ * Body text variations for different use cases.
+ * Includes large, medium, and small sizes with different font weights.
  */
-export const HeadingClasses: Story = {
+export const BodyText: Story = {
   args: {
-    content: 'The quick brown fox jumps over the lazy dog',
+    content: 'Body text sample',
   },
   render: (args) => ({
     props: args,
     template: `
-      <div style="padding: 2rem;">
-        <div style="margin-bottom: 2rem;">
-          <p class="h1">${args.content}</p>
-          <p style="color: var(--color-neutral-600); font-size: 0.875rem; margin-top: 0.5rem;">
-            .h1 class - Can be applied to any element
-          </p>
+      <div style="padding: 24px; background: #F9F9F9; border-radius: 10px;">
+        <!-- Body Large Semibold -->
+        <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E5E5; margin-bottom: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              16px / SemiBold
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <p style="font-family: 'Figtree'; font-weight: 600; font-size: 16px; line-height: 24px; color: #1C4240; margin: 0;">
+              Body Large Semibold - Navigation, Buttons
+            </p>
+          </div>
         </div>
 
-        <div style="margin-bottom: 2rem;">
-          <p class="h2">${args.content}</p>
-          <p style="color: var(--color-neutral-600); font-size: 0.875rem; margin-top: 0.5rem;">
-            .h2 class - Can be applied to any element
-          </p>
+        <!-- Body Large Medium -->
+        <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E5E5; margin-bottom: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              16px / Medium
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 16px; line-height: 24px; color: #727272; margin: 0;">
+              Body Large Medium - Form inputs, Labels
+            </p>
+          </div>
         </div>
 
-        <div style="margin-bottom: 2rem;">
-          <p class="h3">${args.content}</p>
-          <p style="color: var(--color-neutral-600); font-size: 0.875rem; margin-top: 0.5rem;">
-            .h3 class - Can be applied to any element
-          </p>
+        <!-- Body Large Regular -->
+        <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E5E5; margin-bottom: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              16px / Regular
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <p style="font-family: 'Figtree'; font-weight: 400; font-size: 16px; line-height: 24px; color: #1C4240; margin: 0;">
+              Body Large Regular - Body text, Descriptions
+            </p>
+          </div>
+        </div>
+
+        <!-- Body Medium Bold -->
+        <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E5E5; margin-bottom: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              14px / Bold
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <p style="font-family: 'Figtree'; font-weight: 700; font-size: 14px; line-height: 21px; color: #009A6E; margin: 0;">
+              Body Medium Bold - Status labels, Emphasis
+            </p>
+          </div>
+        </div>
+
+        <!-- Body Medium Semibold -->
+        <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E5E5; margin-bottom: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              14px / SemiBold
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <p style="font-family: 'Figtree'; font-weight: 600; font-size: 14px; line-height: 21px; color: #303030; margin: 0;">
+              Body Medium Semibold - Table headers
+            </p>
+          </div>
+        </div>
+
+        <!-- Body Medium Medium -->
+        <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E5E5; margin-bottom: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              14px / Medium
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #1C4240; margin: 0;">
+              Body Medium Medium - Progress steps
+            </p>
+          </div>
+        </div>
+
+        <!-- Body Medium Regular -->
+        <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E5E5; margin-bottom: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              14px / Regular
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <p style="font-family: 'Figtree'; font-weight: 400; font-size: 14px; line-height: 21px; color: #303030; margin: 0;">
+              Body Medium Regular - Table cells, Secondary text
+            </p>
+          </div>
+        </div>
+
+        <!-- Body Small Bold -->
+        <div style="display: flex; align-items: center; gap: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              12px / Bold
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <p style="font-family: 'Figtree'; font-weight: 700; font-size: 12px; line-height: 18px; color: #009A6E; margin: 0;">
+              Body Small Bold - Status badges, Micro labels
+            </p>
+          </div>
         </div>
       </div>
     `,
@@ -91,49 +241,27 @@ export const HeadingClasses: Story = {
 };
 
 /**
- * Font weight variations available in the design system.
+ * Special text styles including underlined links.
  */
-export const FontWeights: Story = {
+export const SpecialTextStyles: Story = {
   args: {
-    content: 'The quick brown fox jumps over the lazy dog',
+    content: 'Underlined Link - Primary action links',
   },
   render: (args) => ({
     props: args,
     template: `
-      <div style="padding: 2rem;">
-        <div style="margin-bottom: 1.5rem;">
-          <p style="font-weight: var(--font-weight-light); font-size: 1rem;">${args.content}</p>
-          <p style="color: var(--color-neutral-600); font-size: 0.875rem; margin-top: 0.5rem;">
-            Light - var(--font-weight-light) / 300
-          </p>
-        </div>
-
-        <div style="margin-bottom: 1.5rem;">
-          <p style="font-weight: var(--font-weight-regular); font-size: 1rem;">${args.content}</p>
-          <p style="color: var(--color-neutral-600); font-size: 0.875rem; margin-top: 0.5rem;">
-            Regular - var(--font-weight-regular) / 400
-          </p>
-        </div>
-
-        <div style="margin-bottom: 1.5rem;">
-          <p style="font-weight: var(--font-weight-medium); font-size: 1rem;">${args.content}</p>
-          <p style="color: var(--color-neutral-600); font-size: 0.875rem; margin-top: 0.5rem;">
-            Medium - var(--font-weight-medium) / 500
-          </p>
-        </div>
-
-        <div style="margin-bottom: 1.5rem;">
-          <p style="font-weight: var(--font-weight-bold); font-size: 1rem;">${args.content}</p>
-          <p style="color: var(--color-neutral-600); font-size: 0.875rem; margin-top: 0.5rem;">
-            Bold - var(--font-weight-bold) / 700
-          </p>
-        </div>
-
-        <div style="margin-bottom: 1.5rem;">
-          <p style="font-weight: var(--font-weight-bolder); font-size: 1rem;">${args.content}</p>
-          <p style="color: var(--color-neutral-600); font-size: 0.875rem; margin-top: 0.5rem;">
-            Bolder - var(--font-weight-bolder) / 900
-          </p>
+      <div style="padding: 24px; background: #F9F9F9; border-radius: 10px;">
+        <div style="display: flex; align-items: center; gap: 24px;">
+          <div style="width: 128px;">
+            <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272;">
+              16px / SemiBold
+            </p>
+          </div>
+          <div style="flex: 1;">
+            <p style="font-family: 'Figtree'; font-weight: 600; font-size: 16px; line-height: 24px; color: #1C4240; text-decoration: underline; text-decoration-color: #DADE14; margin: 0;">
+              ${args.content}
+            </p>
+          </div>
         </div>
       </div>
     `,
@@ -141,66 +269,167 @@ export const FontWeights: Story = {
 };
 
 /**
- * Link styles with underline decoration.
+ * Complete typography system demonstration showing all styles together.
  */
-export const Links: Story = {
-  args: {
-    content: 'This is a sample link',
-  },
-  render: (args) => ({
-    props: args,
-    template: `
-      <div style="padding: 2rem;">
-        <div style="margin-bottom: 1.5rem;">
-          <a href="#">${args.content}</a>
-          <p style="color: var(--color-neutral-600); font-size: 0.875rem; margin-top: 0.5rem;">
-            Default link - Bold weight with lime green underline
-          </p>
-        </div>
-
-        <div style="margin-bottom: 1.5rem; background-color: var(--color-primary-green-dark); padding: 1rem; border-radius: 8px;">
-          <a href="#" class="upov-text-white">${args.content}</a>
-          <p style="color: var(--color-neutral-200); font-size: 0.875rem; margin-top: 0.5rem;">
-            Link on dark background
-          </p>
-        </div>
-      </div>
-    `,
-  }),
-};
-
-/**
- * Screen reader only utility class that visually hides content while keeping it accessible.
- */
-export const ScreenReaderOnly: Story = {
+export const CompleteTypographySystem: Story = {
   render: () => ({
     template: `
-      <div style="padding: 2rem;">
-        <div style="border: 2px dashed var(--color-neutral-300); padding: 1rem; border-radius: 8px;">
-          <p style="margin-bottom: 1rem;">This content is visible to everyone:</p>
-          <button style="padding: 0.5rem 1rem; border: 1px solid var(--color-neutral-300); background: white; border-radius: 4px; cursor: pointer;">
-            <span class="sr-only">Close dialog</span>
-            <span aria-hidden="true">×</span>
-          </button>
-          <p style="color: var(--color-neutral-600); font-size: 0.875rem; margin-top: 1rem;">
-            The "Close dialog" text is hidden visually using the .sr-only class, but screen readers will announce it.
-            Only the "×" symbol is visible.
-          </p>
+      <div style="padding: 0px 72px 72px; background: #FFFFFF;">
+        <!-- Headings Section -->
+        <div style="margin-bottom: 32px;">
+          <h3 style="font-family: 'Figtree'; font-weight: 600; font-size: 18px; line-height: 27px; color: #1C4240; margin: 0 0 16px 0;">
+            Headings
+          </h3>
+          
+          <div style="padding: 24px 24px 0; background: #F9F9F9; border-radius: 10px;">
+            <!-- All heading rows as shown in the design -->
+            <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E5E5;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">48px / Bold</p>
+              </div>
+              <div style="flex: 1;">
+                <h1 style="font-family: 'Figtree'; font-weight: 700; font-size: 48px; line-height: 72px; color: #1C4240; margin: 0;">Heading 1 - Display</h1>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E5E5E5;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">32px / Bold</p>
+              </div>
+              <div style="flex: 1;">
+                <h2 style="font-family: 'Figtree'; font-weight: 700; font-size: 32px; line-height: 48px; color: #1C4240; margin: 0;">Heading 2 - Page Title</h2>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E5E5E5;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">24px / Bold</p>
+              </div>
+              <div style="flex: 1;">
+                <h3 style="font-family: 'Figtree'; font-weight: 700; font-size: 24px; line-height: 36px; color: #1C4240; margin: 0;">Heading 3 - Section Title</h3>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E5E5E5;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">20px / Bold</p>
+              </div>
+              <div style="flex: 1;">
+                <h4 style="font-family: 'Figtree'; font-weight: 700; font-size: 20px; line-height: 30px; color: #303030; margin: 0;">Heading 4 - Subsection</h4>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 24px; padding: 24px 0;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">18px / SemiBold</p>
+              </div>
+              <div style="flex: 1;">
+                <h5 style="font-family: 'Figtree'; font-weight: 600; font-size: 18px; line-height: 27px; color: #1C4240; margin: 0;">Heading 5 - Card Title</h5>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div style="margin-top: 2rem; padding: 1rem; background: var(--color-bg-light); border-radius: 8px;">
-          <h4 style="margin-top: 0;">CSS Properties:</h4>
-          <pre style="font-size: 0.875rem; overflow-x: auto;">position: absolute;
-width: 1px;
-height: 1px;
-padding: 0;
-margin: -1px;
-overflow: hidden;
-white-space: nowrap;
-border: 0;</pre>
+        <!-- Body Text Section -->
+        <div style="margin-bottom: 32px;">
+          <h3 style="font-family: 'Figtree'; font-weight: 600; font-size: 18px; line-height: 27px; color: #1C4240; margin: 0 0 16px 0;">
+            Body Text
+          </h3>
+          
+          <div style="padding: 24px 24px 0; background: #F9F9F9; border-radius: 10px;">
+            <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E5E5;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">16px / SemiBold</p>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-family: 'Figtree'; font-weight: 600; font-size: 16px; line-height: 24px; color: #1C4240; margin: 0;">Body Large Semibold - Navigation, Buttons</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E5E5E5;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">16px / Medium</p>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 16px; line-height: 24px; color: #727272; margin: 0;">Body Large Medium - Form inputs, Labels</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E5E5E5;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">16px / Regular</p>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-family: 'Figtree'; font-weight: 400; font-size: 16px; line-height: 24px; color: #1C4240; margin: 0;">Body Large Regular - Body text, Descriptions</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E5E5E5;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">14px / Bold</p>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-family: 'Figtree'; font-weight: 700; font-size: 14px; line-height: 21px; color: #009A6E; margin: 0;">Body Medium Bold - Status labels, Emphasis</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E5E5E5;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">14px / SemiBold</p>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-family: 'Figtree'; font-weight: 600; font-size: 14px; line-height: 21px; color: #303030; margin: 0;">Body Medium Semibold - Table headers</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E5E5E5;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">14px / Medium</p>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #1C4240; margin: 0;">Body Medium Medium - Progress steps</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E5E5E5;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">14px / Regular</p>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-family: 'Figtree'; font-weight: 400; font-size: 14px; line-height: 21px; color: #303030; margin: 0;">Body Medium Regular - Table cells, Secondary text</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 24px; padding: 24px 0;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">12px / Bold</p>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-family: 'Figtree'; font-weight: 700; font-size: 12px; line-height: 18px; color: #009A6E; margin: 0;">Body Small Bold - Status badges, Micro labels</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Special Text Styles Section -->
+        <!-- Special Text Styles Section -->
+        <div>
+          <h3 style="font-family: 'Figtree'; font-weight: 600; font-size: 18px; line-height: 27px; color: #1C4240; margin: 0 0 16px 0;">
+            Special Text Styles
+          </h3>
+          
+          <div style="padding: 24px 24px 0; background: #F9F9F9; border-radius: 10px;">
+            <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px;">
+              <div style="width: 128px;">
+                <p style="font-family: 'Figtree'; font-weight: 500; font-size: 14px; line-height: 21px; color: #727272; margin: 0;">16px / SemiBold</p>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-family: 'Figtree'; font-weight: 600; font-size: 16px; line-height: 24px; color: #1C4240; text-decoration: underline; text-decoration-color: #DADE14; margin: 0;">Underlined Link - Primary action links</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     `,
   }),
 };
-
