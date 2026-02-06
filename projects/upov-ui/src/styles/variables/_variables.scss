@@ -39,10 +39,10 @@
   /* === Text Colors === */
   --color-text-darnger: var(--color-danger);
   --color-text-warning: var(--color-warning-dark);
-  --color-text-primary: var(--color-primary-green-dark);
+  --color-text-primary: #303030;
   --color-text: var(--color-neutral-800);
   --color-text-secondary: var(--color-neutral-500);
-  --color-text-placeholder: var(--color-neutral-500);
+  --color-text-placeholder:#727272;
   --color-text-muted: var(--color-neutral-600);
   --color-text-negative: var(--color-neutral-white);
 
@@ -56,8 +56,8 @@
   --color-border-dark: var(--color-primary-green-dark);
 
   /* === Gradient Backgrounds === */
-  --bg-gradient-teal-lime: linear-gradient(90deg, var(--color-primary-green-dark) 0%, var(--color-primary-green-light) 100%);
-  --bg-gradient-lime-forest: linear-gradient(90deg, var(--color-primary-green-light) 0%, var(--color-primary-green-bright) 100%);
+  --bg-gradient-teal-lime: linear-gradient(180deg, var(--color-primary-green-dark) 0%, var(--color-primary-green-light) 100%);
+  --bg-gradient-lime-forest: linear-gradient(180deg, var(--color-primary-green-light) 0%, var(--color-primary-green-bright) 100%);
   --bg-gradient-forest-pine: linear-gradient(90deg, var(--color-primary-green-bright) 0%, var(--color-primary-green) 100%);
 
   --mat-form-field-outlined-container-color: var(--color-bg-white);
