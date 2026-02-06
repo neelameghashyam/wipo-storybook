@@ -1,0 +1,17 @@
+<div class="toggle">
+  <button
+    class="toggle-btn"
+    [ngClass]="{ active: value === 'left' }"
+    (click)="select('left')"
+  >
+    {{ leftLabel }}
+  </button>
+
+  <button
+    class="toggle-btn"
+    [ngClass]="{ active: value === 'right' }"
+    (click)="select('right')"
+  >
+    {{ rightLabel }}
+  </button>
+</div>

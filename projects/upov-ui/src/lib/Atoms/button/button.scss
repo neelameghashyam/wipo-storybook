@@ -1,0 +1,144 @@
+/* =====================================================
+   BASE BUTTON
+===================================================== */
+
+.upov-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border-radius: 100px;
+  padding: 0 16px;
+  border: none;
+  cursor: pointer;
+
+  font-family: 'Figtree';
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+
+  background: transparent;
+}
+
+/* icon alignment */
+.upov-btn mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+/* label */
+.upov-btn .label {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* =====================================================
+   SIZES
+===================================================== */
+
+.size-small {
+  height: 32px;
+  min-width: 126px;
+  font-size: 16px;
+}
+
+.size-medium {
+  height: 40px;
+  min-width: 126px;
+  font-size: 16px;
+}
+
+/* =====================================================
+   PRIMARY
+===================================================== */
+
+.type-primary {
+  background: #1c4240;
+  color: #dade14;
+}
+
+.type-primary mat-icon {
+  color: #dade14;
+}
+
+/* =====================================================
+   SECONDARY
+===================================================== */
+
+.type-secondary {
+  background: #ffffff;
+  border: 1px solid #939600;
+  color: #1c4240;
+}
+
+.type-secondary mat-icon {
+  color: #1c4240;
+}
+
+/* =====================================================
+   TERTIARY
+===================================================== */
+
+.type-tertiary {
+  background: transparent;
+  border: none;
+  color: #1c4240;
+
+  text-decoration-line: underline;
+  text-decoration-color: #dade14;
+  text-underline-offset: 3px;
+}
+
+.type-tertiary mat-icon {
+  color: #1c4240;
+}
+
+/* =====================================================
+   DISABLED STATES (FIGMA EXACT)
+===================================================== */
+
+/* remove browser default opacity */
+.upov-btn:disabled {
+  opacity: 1 !important;
+  cursor: not-allowed;
+}
+
+/* PRIMARY DISABLED - very light gray background */
+.upov-btn.type-primary:disabled {
+  background: #e8e8e8 !important;
+  color: #a3a3a3 !important;
+}
+
+.upov-btn.type-primary:disabled mat-icon {
+  color: #a3a3a3 !important;
+}
+
+/* SECONDARY DISABLED - white background with very light gray border */
+.upov-btn.type-secondary:disabled {
+  background: #ffffff !important;
+  border: 1px solid #e8e8e8 !important;
+  color: #a3a3a3 !important;
+}
+
+.upov-btn.type-secondary:disabled mat-icon {
+  color: #a3a3a3 !important;
+}
+
+/* TERTIARY DISABLED - transparent with gray text, no underline */
+.upov-btn.type-tertiary:disabled {
+  background: transparent !important;
+  color: #a3a3a3 !important;
+  text-decoration: none !important;
+  border: none !important;
+}
+
+.upov-btn.type-tertiary:disabled mat-icon {
+  color: #a3a3a3 !important;
+}

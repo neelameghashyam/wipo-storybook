@@ -1,0 +1,17 @@
+<button
+  class="upov-btn"
+  [class.type-primary]="type === 'primary'"
+  [class.type-secondary]="type === 'secondary'"
+  [class.type-tertiary]="type === 'tertiary'"
+  [class.size-small]="size === 'small'"
+  [class.size-medium]="size === 'medium'"
+  [disabled]="disabled"
+>
+  <mat-icon *ngIf="iconLeft">{{ iconLeft }}</mat-icon>
+
+  <span class="label">
+    <ng-content></ng-content>
+  </span>
+
+  <mat-icon *ngIf="iconRight">{{ iconRight }}</mat-icon>
+</button>

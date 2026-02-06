@@ -1,0 +1,36 @@
+.links-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: 'Figtree', sans-serif;
+}
+
+.label {
+  font-size: 14px;
+  color: #303030;
+  font-weight: 400;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #1C4240;
+  cursor: pointer;
+
+  text-decoration-line: underline;
+  text-decoration-color: #DADE14;   /* ← FIGMA underline */
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+.icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  color: #1C4240;
+}

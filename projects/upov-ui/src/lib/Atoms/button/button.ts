@@ -1,26 +1,21 @@
-import {booleanAttribute, Directive, input} from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
-type ButtonVariant = 'primary' | 'secondary' | 'default' | 'danger' | 'accent' | '';
+export type ButtonType = 'primary' | 'secondary' | 'tertiary';
+export type ButtonSize = 'small' | 'medium';
 
-@Directive({
-  selector: '[matButton][upovButton],[mat-button][upovButton],[matIconButton][upovButton],[mat-icon-button][upovButton]',
-  host: {
-    '[class.upov-button]': 'true',
-    '[class.upov-button--default]': 'upovButton() === "default" || upovButton() === ""',
-    '[class.upov-button--primary]': 'upovButton() === "primary"',
-    '[class.upov-button--secondary]': 'upovButton() === "secondary"',
-    '[class.upov-button--danger]': 'upovButton() === "danger"',
-    '[class.upov-button--accent]': 'upovButton() === "accent"',
-    '[class.upov-button--small]': 'size() === "small"',
-    '[class.upov-button--medium]': 'size() === "medium"',
-    '[class.upov-button--large]': 'size() === "large"',
-    '[class.upov-button--icon-filled]': 'iconFilled()',
-    '[class.upov-button--icon-outlined]': 'iconOutlined()',
-  },
+@Component({
+  selector: 'upov-button',
+  standalone: true,
+  templateUrl: './button.html',
+  styleUrl: './button.scss',
+  imports: [CommonModule, MatIconModule]
 })
 export class Button1 {
-  upovButton = input<ButtonVariant>('default', {});
-  size = input<'small' | 'medium' | 'large'>('medium');
-  iconFilled = input(false, {transform: booleanAttribute});
-  iconOutlined = input(false, {transform: booleanAttribute});
+  @Input() type: ButtonType = 'primary';
+  @Input() size: ButtonSize = 'small';
+  @Input() iconLeft?: string;
+  @Input() iconRight?: string;
+  @Input() disabled = false;
 }
