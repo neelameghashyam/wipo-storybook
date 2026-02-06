@@ -1,0 +1,42 @@
+<div class="input-container" [ngClass]="'variant-' + variant + ' type-' + type">
+  <!-- Text Input -->
+  <div *ngIf="type === 'text'" class="input-wrapper">
+    <input
+      type="text"
+      [value]="value"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      (input)="onInput($event)"
+      class="input-field"
+    />
+    <div *ngIf="showChevron" class="chevron-icon">
+      <mat-icon>expand_more</mat-icon>
+    </div>
+  </div>
+
+  <!-- Phone Input -->
+  <div *ngIf="type === 'phone'" class="input-wrapper phone-input">
+    <div class="flag-section">
+      <div class="flag-icon">
+        <!-- Australia flag representation -->
+        <div class="flag-au"></div>
+      </div>
+      <div class="chevron-icon-small">
+        <mat-icon>expand_more</mat-icon>
+      </div>
+    </div>
+    <span class="country-code">{{ countryCode }}</span>
+    <input
+      type="tel"
+      [value]="value"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      (input)="onInput($event)"
+      class="input-field phone-field"
+    />
+  </div>
+</div>
