@@ -1,0 +1,207 @@
+.textarea-container {
+  display: inline-block;
+  width: 850px;
+  font-family: 'Figtree', sans-serif;
+
+  .rich-text-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    width: 100%;
+    min-width: 424px;
+    max-width: 1288px;
+
+    .menu-bar {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 8px;
+      gap: 16px;
+      width: 100%;
+      height: 56px;
+      background: #ffffff;
+      border: 1px solid #1c4240;
+      border-radius: 4px 4px 0px 0px;
+
+      .toolbar-icons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 16px;
+        gap: 24px;
+        width: 100%;
+
+        .toolbar-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+          width: 24px;
+          height: 24px;
+
+          mat-icon {
+            width: 24px;
+            height: 24px;
+            font-size: 24px;
+            color: #1c4240;
+          }
+
+          &:hover:not(:disabled) {
+            opacity: 0.7;
+          }
+
+          &:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+
+            mat-icon {
+              color: #727272;
+            }
+          }
+        }
+
+        .toolbar-group {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+
+          .dropdown-icon {
+            width: 16px;
+            height: 16px;
+            font-size: 16px;
+            color: #727272;
+            cursor: pointer;
+
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+
+    .text-field {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 16px 20px 16px 16px;
+      gap: 8px;
+      isolation: isolate;
+      width: 100%;
+      min-height: 122px;
+      max-height: 216px;
+      background: #ffffff;
+      border-width: 0px 1px 1px 1px;
+      border-style: solid;
+      border-color: #1c4240;
+      border-radius: 0px 0px 4px 4px;
+      position: relative;
+
+      .textarea-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        resize: none;
+        font-family: 'Figtree';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #727272;
+        padding: 0;
+        width: 100%;
+        overflow-y: auto;
+
+        &::placeholder {
+          color: #727272;
+          display: flex;
+          align-items: center;
+        }
+
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+        }
+
+        // Custom scrollbar
+        &::-webkit-scrollbar {
+          width: 14px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: rgba(28, 66, 64, 0.2);
+          border-radius: 7px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background: rgba(28, 66, 64, 0.3);
+        }
+      }
+
+      .resize-handle {
+        position: absolute;
+        width: 16px;
+        height: 9.06px;
+        right: -1px;
+        bottom: 8.94px;
+        cursor: nwse-resize;
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+
+  // Variant: Default
+  &.variant-default {
+    .rich-text-area {
+      .menu-bar {
+        background: #ffffff;
+        border: 1px solid #1c4240;
+      }
+
+      .text-field {
+        background: #ffffff;
+        border-color: #1c4240;
+
+        .textarea-input {
+          font-weight: 400;
+          color: #727272;
+        }
+      }
+    }
+  }
+
+  // Variant: Filled
+  &.variant-filled {
+    .rich-text-area {
+      .menu-bar {
+        background: #ffffff;
+        border: 1px solid #1c4240;
+      }
+
+      .text-field {
+        background: #ffffff;
+        border-color: #1c4240;
+
+        .textarea-input {
+          font-weight: 500;
+          color: #303030;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,295 @@
+.multiselect-container {
+  display: inline-block;
+  width: 265px;
+  position: relative;
+  font-family: 'Figtree', sans-serif;
+
+  .multiselect-trigger {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 12px;
+    gap: 8px;
+    height: 40px;
+    background: #ffffff;
+    border: 1px solid #1c4240;
+    border-radius: 4px;
+    cursor: pointer;
+
+    .trigger-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 8px;
+
+      .placeholder {
+        flex: 1;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #727272;
+      }
+
+      .selected-text {
+        flex: 1;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #303030;
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        .clear-btn {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+
+          mat-icon {
+            width: 16px;
+            height: 16px;
+            font-size: 16px;
+            color: #1c4240;
+          }
+
+          span {
+            font-family: 'Figtree';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 19px;
+            color: #1c4240;
+          }
+
+          &:hover:not(:disabled) {
+            opacity: 0.8;
+          }
+
+          &:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+          }
+        }
+      }
+
+      &.multi-select {
+        .selection-chips {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex: 1;
+
+          .selection-chip {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            gap: 4px;
+            background: #dade14;
+            border-radius: 4px;
+            height: 28px;
+            box-sizing: border-box;
+
+            .chip-text {
+              font-family: 'Figtree';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 19px;
+              color: #303030;
+            }
+
+            .chip-remove {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: none;
+              border: none;
+              cursor: pointer;
+              padding: 0;
+              width: 16px;
+              height: 16px;
+
+              mat-icon {
+                width: 12px;
+                height: 12px;
+                font-size: 12px;
+                color: #1c4240;
+              }
+
+              &:hover:not(:disabled) {
+                opacity: 0.7;
+              }
+
+              &:disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+      }
+
+      .chevron-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 18px;
+        color: #1c4240;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .multiselect-dropdown {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 11px 0px 5px;
+    gap: 8px;
+    width: 265px;
+    max-height: 326px;
+    background: #ffffff;
+    border: 2px solid #547f71;
+    box-shadow: 0px 2px 8px rgba(70, 70, 70, 0.04);
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    .dropdown-header {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0px 12px;
+      gap: 8px;
+      width: 100%;
+      box-sizing: border-box;
+
+      .search-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-family: 'Figtree';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #727272;
+        padding: 0;
+        height: 24px;
+
+        &::placeholder {
+          color: #727272;
+        }
+
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+        }
+      }
+
+      .chevron-icon-up {
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+        color: #1c4240;
+        flex-shrink: 0;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .divider {
+      width: calc(100% - 24px);
+      height: 0px;
+      border: 1px solid rgba(118, 118, 118, 0.25);
+      margin: 0 12px;
+    }
+
+    .options-list {
+      width: 100%;
+      max-height: 256px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+
+      .option-item {
+        display: flex;
+        align-items: center;
+        padding: 0px 12px;
+        min-height: 32px;
+        font-family: 'Figtree';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #303030;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: rgba(84, 127, 113, 0.1);
+        }
+
+        &.selected {
+          background-color: rgba(218, 222, 20, 0.2);
+        }
+      }
+    }
+  }
+
+  // Variant: Default
+  &.variant-default {
+    .multiselect-trigger {
+      background: #ffffff;
+      border: 1px solid #1c4240;
+    }
+  }
+
+  // Variant: Filled
+  &.variant-filled {
+    .multiselect-trigger {
+      background: #ffffff;
+      border: 1px solid #1c4240;
+    }
+  }
+
+  // Variant: Open
+  &.variant-open {
+    .multiselect-trigger {
+      display: none;
+    }
+  }
+
+  // Variant: Disabled
+  &.variant-disabled {
+    .multiselect-trigger {
+      background: #f9f9f9;
+      border: 1px solid #727272;
+      cursor: not-allowed;
+
+      .trigger-content {
+        .placeholder,
+        .selected-text {
+          color: #696969;
+        }
+      }
+    }
+  }
+}

@@ -4,10 +4,11 @@
 
   .input-wrapper {
     box-sizing: border-box;
+    width: 100%; // 🔥 ensures icon stays inside
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px 12px;
+    padding: 0 12px;
     gap: 8px;
     height: 40px;
     background: #ffffff;
@@ -15,13 +16,14 @@
     border-radius: 4px;
     position: relative;
 
+    // TEXT INPUT FIELD
     .input-field {
       flex: 1;
+      min-width: 0; // 🔥 CRITICAL: prevents overflow pushing icon outside
       border: none;
       outline: none;
       background: transparent;
       font-family: 'Figtree', sans-serif;
-      font-style: normal;
       font-weight: 400;
       font-size: 16px;
       line-height: 19px;
@@ -37,7 +39,9 @@
       }
     }
 
+    // RIGHT CHEVRON
     .chevron-icon {
+      flex-shrink: 0; // 🔥 prevents icon from leaving box
       display: flex;
       align-items: center;
       justify-content: center;
@@ -52,21 +56,23 @@
       }
     }
 
-    // Phone input specific styles
+    // =========================
+    // PHONE INPUT
+    // =========================
     &.phone-input {
       .flag-section {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
+        flex-shrink: 0;
       }
 
       .flag-icon {
         width: 28px;
-        height: 24px;
+        height: 20px;
         border-radius: 2px;
-        position: relative;
         overflow: hidden;
-        border: 0.125px solid #e2e2e2;
+        border: 0.5px solid #e2e2e2;
 
         .flag-au {
           width: 100%;
@@ -79,15 +85,14 @@
       }
 
       .chevron-icon-small {
+        flex-shrink: 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 24px;
-        height: 24px;
+        width: 18px;
+        height: 18px;
 
         mat-icon {
-          width: 16px;
-          height: 16px;
           font-size: 16px;
           color: #1c4240;
         }
@@ -95,20 +100,22 @@
 
       .country-code {
         font-family: 'Figtree', sans-serif;
-        font-style: normal;
-        font-weight: 400;
         font-size: 16px;
-        line-height: 19px;
         color: #727272;
+        margin-right: 4px;
+        flex-shrink: 0;
       }
 
       .phone-field {
         flex: 1;
+        min-width: 0;
       }
     }
   }
 
-  // Variant: Default
+  // =========================
+  // DEFAULT
+  // =========================
   &.variant-default {
     .input-wrapper {
       background: #ffffff;
@@ -121,7 +128,9 @@
     }
   }
 
-  // Variant: Filled
+  // =========================
+  // FILLED
+  // =========================
   &.variant-filled {
     .input-wrapper {
       background: #ffffff;
@@ -141,13 +150,15 @@
     }
   }
 
-  // Variant: Focused
+  // =========================
+  // FOCUSED
+  // =========================
   &.variant-focused {
     .input-wrapper {
       background: #ffffff;
       border: 2px solid #547f71;
-      box-shadow: 0px 1px 12px -3px #e3fff7;
-      padding: 0px 11px; // Adjust for 2px border
+      box-shadow: 0 1px 12px -3px #e3fff7;
+      padding: 0 11px; // adjust for 2px border
 
       .input-field {
         font-weight: 500;
@@ -163,7 +174,9 @@
     }
   }
 
-  // Variant: Disabled
+  // =========================
+  // DISABLED
+  // =========================
   &.variant-disabled {
     .input-wrapper {
       background: #f9f9f9;

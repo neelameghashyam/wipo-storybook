@@ -1,0 +1,36 @@
+<div class="footer-container">
+  <div class="footer-content">
+    <!-- Left: Export Button -->
+    <div class="footer-left">
+      <button class="footer-button export-button" (click)="onExport()">
+        <svg class="icon download-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 13V14C1 15.1046 1.89543 16 3 16H15C16.1046 16 17 15.1046 17 14V13M13 9L9 13M9 13L5 9M9 13V1" stroke="#1C4240" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="button-text">Export</span>
+      </button>
+    </div>
+
+    <!-- Right: Navigation Buttons -->
+    <div class="footer-right">
+      <button 
+        class="footer-button nav-button prev-button" 
+        (click)="onPreviousChapter()"
+        [disabled]="!hasPreviousChapter">
+        <svg class="icon chevron-left" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.25 13.5L6.75 9L11.25 4.5" stroke="#1C4240" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="button-text">Previous chapter</span>
+      </button>
+
+      <button 
+        class="footer-button nav-button next-button" 
+        (click)="onNextChapter()"
+        [disabled]="!hasNextChapter">
+        <span class="button-text">Next chapter</span>
+        <svg class="icon chevron-right" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.75 13.5L11.25 9L6.75 4.5" stroke="#1C4240" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>

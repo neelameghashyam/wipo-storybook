@@ -1,0 +1,10 @@
+<label class="radio-wrapper" [class.disabled]="disabled">
+  <input 
+    type="radio" 
+    [checked]="checked"
+    [disabled]="disabled"
+    (change)="onChange($event)"
+    class="radio-input"
+  />
+  <span class="radio-circle"></span>
+</label>
