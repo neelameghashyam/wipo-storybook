@@ -61,19 +61,30 @@
   }
 }
 
+/* ================================
+   TEXT
+================================ */
 .button-text {
   font-family: 'Figtree', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
-  text-decoration-line: underline;
+
   color: #1C4240;
+
+  text-decoration-line: underline;
+  text-decoration-color: #DADE14;   // 🔥 underline color
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
+/* ================================
+   ICONS
+================================ */
 .icon {
   flex: none;
-  
+
   svg {
     display: block;
   }
@@ -83,18 +94,24 @@
   }
 }
 
+/* ================================
+   EXPORT BUTTON
+================================ */
 .export-button {
   width: 75px;
 
   .icon {
     display: none;
-    
+
     &.download-icon {
       display: block;
     }
   }
 }
 
+/* ================================
+   NAV BUTTONS
+================================ */
 .nav-button {
   .icon {
     display: block;
@@ -125,28 +142,16 @@
   }
 }
 
-// Disabled state
+/* ================================
+   DISABLED STATE
+================================ */
 .footer-button:disabled {
   .button-text {
     color: #B3B3B3;
+    text-decoration-color: #B3B3B3; // underline disabled
   }
 
   .icon path {
     stroke: #B3B3B3;
-  }
-}
-
-// Responsive adjustments
-@media (max-width: 768px) {
-  .footer-content {
-    padding: 16px 24px;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .footer-left,
-  .footer-right {
-    width: 100%;
-    justify-content: center;
   }
 }
