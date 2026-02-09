@@ -1,0 +1,23 @@
+<div class="breadcrumbs-container" [class.mobile]="device === 'mobile'">
+  
+  <!-- Desktop Breadcrumbs -->
+  <nav *ngIf="device === 'desktop'" class="breadcrumbs-desktop">
+    <ng-container *ngFor="let item of displayBreadcrumbs; let last = last">
+      <a 
+        class="breadcrumb-item"
+        [class.active]="item.isLast"
+        (click)="onBreadcrumbClick(item)">
+        {{ item.label }}
+      </a>
+      <span *ngIf="!last" class="separator">/</span>
+    </ng-container>
+  </nav>
+
+  <!-- Mobile Breadcrumbs -->
+  <nav *ngIf="device === 'mobile'" class="breadcrumbs-mobile">
+    <button class="back-button" (click)="onBackButtonClick()">
+      <mat-icon>arrow_forward</mat-icon>
+      <span class="previous-page-name">{{ previousPageName }}</span>
+    </button>
+  </nav>
+</div>

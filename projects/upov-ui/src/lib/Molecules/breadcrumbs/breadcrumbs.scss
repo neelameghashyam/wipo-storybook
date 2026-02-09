@@ -1,0 +1,99 @@
+// Color variables
+$primary-dark-teal: #1C4240;
+$primary-lime: #DADE14;
+$gray-2: #303030;
+
+.breadcrumbs-container {
+  font-family: 'Figtree', sans-serif;
+  width: 100%;
+}
+
+/* =====================================================
+   DESKTOP BREADCRUMBS
+===================================================== */
+
+.breadcrumbs-desktop {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 9px 24px 9px 140px;
+  gap: 4px;
+  height: 40px;
+  background: $primary-lime;
+}
+
+.breadcrumb-item {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: $primary-dark-teal;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+
+  &:hover:not(.active) {
+    opacity: 0.7;
+  }
+
+  &.active {
+    font-weight: 700;
+    cursor: default;
+  }
+}
+
+.separator {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: $primary-dark-teal;
+  margin: 0 4px;
+}
+
+/* =====================================================
+   MOBILE BREADCRUMBS
+===================================================== */
+
+.breadcrumbs-mobile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 9px 16px;
+  gap: 4px;
+  height: 40px;
+  background: $primary-lime;
+}
+
+.back-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  mat-icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    color: $gray-2;
+    transform: rotate(180deg);
+  }
+
+  .previous-page-name {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: $gray-2;
+  }
+}

@@ -1,0 +1,13 @@
+<div class="tabs-container">
+  <div class="tab-bar" [class.multiple]="tabs.length > 1">
+    <button 
+      *ngFor="let tab of tabs"
+      class="tab-item"
+      [class.active]="isTabActive(tab)"
+      (click)="onTabClick(tab)">
+      <div class="tab-content">
+        <span class="tab-text">{{ tab.label }}</span>
+      </div>
+    </button>
+  </div>
+</div>

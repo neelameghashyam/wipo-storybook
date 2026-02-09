@@ -1,0 +1,68 @@
+/* =========================================
+   COLOR TOKENS
+========================================= */
+$primary-dark-teal: #1C4240;
+$secondary-moss: #547F71;
+
+.tabs-container {
+  font-family: 'Figtree', sans-serif;
+  width: fit-content;
+}
+
+/* =========================================
+   TAB BAR
+========================================= */
+.tab-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+
+  /* show full bottom line ONLY when multiple tabs */
+  &.multiple {
+    border-bottom: 1px solid $secondary-moss;
+  }
+}
+
+/* =========================================
+   TAB ITEM
+========================================= */
+.tab-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+  padding: 0;
+  height: 40px;
+
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+
+  &:hover:not(.active) {
+    opacity: 0.75;
+  }
+
+  &.active {
+    border-bottom: 3px solid $secondary-moss;
+
+    .tab-text {
+      font-weight: 600;
+    }
+  }
+}
+
+/* =========================================
+   TEXT
+========================================= */
+.tab-text {
+  font-family: 'Figtree', sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  color: $primary-dark-teal;
+  white-space: nowrap;
+  font-weight: 400;
+}
