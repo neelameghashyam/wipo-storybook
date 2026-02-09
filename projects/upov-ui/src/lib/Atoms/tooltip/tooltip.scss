@@ -1,0 +1,114 @@
+.tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  font-family: 'Figtree', sans-serif;
+
+  .tooltip-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
+
+    .tooltip-text {
+      font-size: 14px;
+      color: #303030;
+      white-space: nowrap;
+    }
+
+    /* ARROW */
+    .tooltip-arrow {
+      position: absolute;
+      width: 12px;
+      height: 8px;
+
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  /* LEFT - Arrow points LEFT (tooltip on RIGHT side) */
+  &.position-left {
+    .tooltip-arrow {
+      left: -8px;
+      top: 50%;
+      width: 8px;
+      height: 12px;
+      transform: translateY(-50%) rotate(270deg);
+    }
+  }
+
+  /* RIGHT - Arrow points RIGHT (tooltip on LEFT side) */
+  &.position-right {
+    .tooltip-arrow {
+      right: -8px;
+      top: 50%;
+      width: 8px;
+      height: 12px;
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+
+  /* UP - Arrow points UP (tooltip on BOTTOM) */
+  &.position-up {
+    .tooltip-arrow {
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%) rotate(0deg);
+    }
+  }
+
+  /* DOWN - Arrow points DOWN (tooltip on TOP) */
+  &.position-down {
+    .tooltip-arrow {
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%) rotate(180deg);
+    }
+  }
+}
+
+/* TRIGGER POSITIONING */
+.tooltip-trigger {
+  position: relative;
+  display: inline-block;
+
+  .tooltip-wrapper {
+    position: absolute;
+    pointer-events: none;
+
+    /* LEFT arrow = tooltip appears on RIGHT of trigger */
+    &.position-left {
+      left: calc(100% + 8px);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* RIGHT arrow = tooltip appears on LEFT of trigger */
+    &.position-right {
+      right: calc(100% + 8px);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* UP arrow = tooltip appears BELOW trigger */
+    &.position-up {
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* DOWN arrow = tooltip appears ABOVE trigger */
+    &.position-down {
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

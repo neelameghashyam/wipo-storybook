@@ -1,0 +1,115 @@
+<div class="searchbar-container" [ngClass]="['device-' + device, 'variant-' + variant]">
+  
+  <!-- Toggle (Mobile - appears first) -->
+  <div *ngIf="device === 'mobile'" class="toggle-wrapper">
+    <div class="toggle">
+      <button 
+        class="toggle-button" 
+        [class.active]="selectedToggle === 'species'"
+        (click)="onToggleClick('species')">
+        Species
+      </button>
+      <button 
+        class="toggle-button" 
+        [class.active]="selectedToggle === 'authorities'"
+        (click)="onToggleClick('authorities')">
+        Authorities
+      </button>
+    </div>
+  </div>
+
+  <!-- Search Input Container -->
+  <div class="search-wrapper">
+    <div class="search-input-container" [class.has-suggestions]="showSuggestions">
+      
+      <!-- Input Row -->
+      <div class="input-row">
+        <!-- Search Icon -->
+        <mat-icon class="search-icon">search</mat-icon>
+
+        <!-- Input Field -->
+        <input 
+          #searchInput
+          type="text" 
+          class="search-input"
+          [placeholder]="placeholder"
+          [(ngModel)]="value"
+          (input)="onInput($event)"
+          (focus)="onFocus()"
+          (blur)="onBlur()"
+        />
+
+        <!-- Clear Button (shown when filled) -->
+        <button 
+          *ngIf="value && device === 'desktop'" 
+          class="clear-button"
+          (click)="onClear()">
+          <mat-icon class="clear-icon">close</mat-icon>
+          <span class="clear-text">Clear</span>
+        </button>
+
+        <!-- Close Icon (mobile filled) -->
+        <button 
+          *ngIf="value && device === 'mobile'" 
+          class="clear-icon-button"
+          (click)="onClear()">
+          <mat-icon class="clear-icon-mobile">close</mat-icon>
+        </button>
+
+        <!-- Toggle (Desktop - inline with search) -->
+        <div *ngIf="device === 'desktop'" class="toggle">
+          <button 
+            class="toggle-button" 
+            [class.active]="selectedToggle === 'species'"
+            (click)="onToggleClick('species')">
+            Species
+          </button>
+          <button 
+            class="toggle-button" 
+            [class.active]="selectedToggle === 'authorities'"
+            (click)="onToggleClick('authorities')">
+            Authorities
+          </button>
+        </div>
+      </div>
+
+      <!-- Suggestions Dropdown -->
+      <div *ngIf="showSuggestions && suggestions.length > 0" class="suggestions-container">
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- Suggestion Items -->
+        <div 
+          *ngFor="let suggestion of suggestions; let i = index"
+          class="suggestion-item"
+          [class.selected]="i === selectedSuggestionIndex"
+          (click)="onSuggestionClick(suggestion)"
+          (mouseenter)="onSuggestionHover(i)">
+          <div class="suggestion-content">
+            <span class="suggestion-code">{{ suggestion.code }}</span>
+            <span *ngIf="suggestion.name" class="suggestion-name">{{ suggestion.name }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Search Button (Desktop) -->
+    <button 
+      *ngIf="device === 'desktop'" 
+      class="search-button desktop-button"
+      [class.disabled]="!value"
+      (click)="onSearch()">
+      Search
+    </button>
+  </div>
+
+  <!-- Search Button (Mobile - full width below) -->
+  <button 
+    *ngIf="device === 'mobile'" 
+    class="search-button mobile-button"
+    (click)="onSearch()">
+    Search
+  </button>
+
+</div>

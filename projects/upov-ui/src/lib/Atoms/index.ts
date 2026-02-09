@@ -6,3 +6,5 @@ export * from './multiselect/multiselect';
 export * from './textarea/textarea'
 export * from './radiobuttons/radiobuttons'
 export * from './checkbox/checkbox'
+export * from './pagination/pagination'
+export * from './tooltip/tooltip'

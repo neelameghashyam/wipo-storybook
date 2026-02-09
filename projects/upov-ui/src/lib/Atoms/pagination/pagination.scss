@@ -1,0 +1,193 @@
+// Color variables from Figma
+$primary-dark-teal: #1C4240;
+$primary-lime: #DADE14;
+$secondary-moss: #547F71;
+$secondary-lemon-dust: #939600;
+$background-white: #FFFFFF;
+$gray-2: #303030;
+$gray-disabled: #E0E0E2;
+$gray-text: #757575;
+
+.pagination-container {
+  font-family: 'Figtree', sans-serif;
+}
+
+/* =====================================================
+   DESKTOP PAGINATION
+===================================================== */
+
+
+.pagination-desktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px; // 🔥 spacing between all boxes
+  height: 40px;
+}
+
+/* Base button */
+.pagination-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  padding: 0;
+  border-radius: 4px;
+  border: 1px solid $secondary-lemon-dust;
+  background: $background-white;
+
+  font-family: 'Figtree', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: $gray-2;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled):not(.active) {
+    background: #f6f6f6;
+  }
+
+  &:disabled {
+    background: $gray-disabled;
+    border-color: transparent;
+    cursor: not-allowed;
+
+    mat-icon {
+      color: $gray-text;
+    }
+  }
+
+  &.active {
+    background: $primary-dark-teal;
+    border-color: transparent;
+    color: $primary-lime;
+    font-weight: 700;
+  }
+
+  mat-icon {
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+    color: $primary-dark-teal;
+  }
+}
+
+/* Navigation buttons (arrows) */
+.navigation-button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+/* Page number buttons */
+.page-button {
+  width: 40px;
+  height: 40px;
+}
+
+/* 🔥 CENTER DROPDOWN — FIX SIZE */
+.page-dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  padding: 0 12px;
+  margin: 0 4px;
+
+  border: 1px solid $secondary-lemon-dust;
+  border-radius: 4px;
+  background: $background-white;
+
+  min-width: 88px;   // 🔥 Figma size
+  width: auto;       // prevent stretching
+
+  gap: 6px;
+  cursor: pointer;
+
+  span {
+    font-family: 'Figtree';
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+    white-space: nowrap;
+  }
+
+  mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    color: $primary-dark-teal;
+  }
+
+  &:hover {
+    background: #f6f6f6;
+  }
+}
+
+
+/* =====================================================
+   MOBILE PAGINATION
+===================================================== */
+
+.pagination-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 375px;
+}
+
+.page-indicator {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: $gray-2;
+}
+
+.mobile-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+
+  .pagination-button {
+    flex-shrink: 0;
+  }
+
+  .ellipsis {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: $gray-text;
+    border: none;
+    background: transparent;
+    cursor: default;
+
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+/* =====================================================
+   RESPONSIVE ADJUSTMENTS
+===================================================== */
+
+.pagination-container.mobile {
+  .pagination-desktop {
+    display: none;
+  }
+
+  .pagination-mobile {
+    display: flex;
+  }
+}

@@ -1,0 +1,93 @@
+<div class="pagination-container" [class.mobile]="device === 'mobile'">
+  
+  <!-- Desktop Pagination -->
+  <div *ngIf="device === 'desktop'" class="pagination-desktop">
+    
+    <!-- First page button (double arrow left) -->
+    <button 
+      class="pagination-button navigation-button"
+      [disabled]="isFirstPage()"
+      (click)="goToFirstPage()">
+      <mat-icon class="double-arrow">keyboard_double_arrow_left</mat-icon>
+    </button>
+    
+    <!-- Previous page button (single arrow left) -->
+    <button 
+      class="pagination-button navigation-button"
+      [disabled]="isFirstPage()"
+      (click)="goToPreviousPage()">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    
+    <!-- Page number buttons -->
+    <button 
+      *ngFor="let page of visiblePages"
+      class="pagination-button page-button"
+      [class.active]="page === currentPage"
+      [disabled]="page === '...'"
+      (click)="onPageClick(page)">
+      {{ page }}
+    </button>
+    
+    <!-- Dropdown for page selection -->
+    <div class="page-dropdown">
+      <span>{{ currentPage }} of {{ totalPages }}</span>
+      <mat-icon>expand_more</mat-icon>
+    </div>
+    
+    <!-- Next page button (single arrow right) -->
+    <button 
+      class="pagination-button navigation-button"
+      [disabled]="isLastPage()"
+      (click)="goToNextPage()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+    
+    <!-- Last page button (double arrow right) -->
+    <button 
+      class="pagination-button navigation-button"
+      [disabled]="isLastPage()"
+      (click)="goToLastPage()">
+      <mat-icon class="double-arrow">keyboard_double_arrow_right</mat-icon>
+    </button>
+  </div>
+
+  <!-- Mobile Pagination -->
+  <div *ngIf="device === 'mobile'" class="pagination-mobile">
+    
+    <!-- Page indicator text -->
+    <div class="page-indicator">
+      Page {{ currentPage }} of {{ totalPages }}
+    </div>
+    
+    <!-- Navigation controls -->
+    <div class="mobile-navigation">
+      
+      <!-- Previous page button -->
+      <button 
+        class="pagination-button navigation-button"
+        [disabled]="isFirstPage()"
+        (click)="goToPreviousPage()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      
+      <!-- Page number buttons -->
+      <button 
+        *ngFor="let page of visiblePages"
+        class="pagination-button page-button"
+        [class.active]="page === currentPage"
+        [class.ellipsis]="page === '...'"
+        (click)="onPageClick(page)">
+        {{ page }}
+      </button>
+      
+      <!-- Next page button -->
+      <button 
+        class="pagination-button navigation-button"
+        [disabled]="isLastPage()"
+        (click)="goToNextPage()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

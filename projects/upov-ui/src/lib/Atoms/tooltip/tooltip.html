@@ -1,0 +1,10 @@
+<div class="tooltip-wrapper" [ngClass]="'position-' + position" *ngIf="visible">
+  <div class="tooltip-container">
+    <span class="tooltip-text">{{ text }}</span>
+    <div class="tooltip-arrow">
+      <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 0L12 8H0L6 0Z" fill="#FFFFFF"/>
+      </svg>
+    </div>
+  </div>
+</div>
