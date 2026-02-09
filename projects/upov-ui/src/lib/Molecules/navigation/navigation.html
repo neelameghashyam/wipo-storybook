@@ -1,0 +1,49 @@
+<div class="navigation-container" [class.mobile]="device === 'mobile'">
+  
+  <!-- Desktop Navigation -->
+  <nav *ngIf="device === 'desktop'" class="navigation-desktop">
+    <!-- Logo with SVG -->
+    <div class="logo">
+      <img [src]="desktopLogoPath" alt="UPOV Logo" class="logo-svg">
+    </div>
+    
+    <!-- Navigation Sections -->
+    <div class="sections">
+      <div 
+        *ngFor="let item of menuItems" 
+        class="nav-item-wrapper"
+        [class.active]="item.isActive">
+        
+        <a class="nav-item" (click)="onMenuItemClick(item)">
+          <span class="nav-label">{{ item.label }}</span>
+          
+          <!-- Dropdown indicator -->
+          <span *ngIf="item.hasDropdown" class="dropdown-indicator">▼</span>
+        </a>
+      </div>
+      
+      <!-- Search Icon -->
+      <button class="search-button" (click)="onSearchClick()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <nav *ngIf="device === 'mobile'" class="navigation-mobile">
+    <!-- Logo with SVG -->
+    <div class="logo">
+      <img [src]="mobileLogoPath" alt="UPOV Logo" class="logo-svg">
+    </div>
+    
+    <!-- Hamburger Menu -->
+    <button 
+      class="hamburger-menu" 
+      [class.active]="isMobileMenuOpen"
+      (click)="toggleMobileMenu()">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </button>
+  </nav>
+</div>

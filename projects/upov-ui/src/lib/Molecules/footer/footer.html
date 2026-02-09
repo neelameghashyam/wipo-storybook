@@ -1,0 +1,94 @@
+<div class="footer-container" [class.mobile]="device === 'mobile'">
+  
+  <!-- Desktop Footer -->
+  <footer *ngIf="device === 'desktop'" class="footer-desktop">
+    <div class="all-content">
+      
+      <!-- Logo with SVG -->
+      <div class="logo">
+        <img [src]="logoPath" alt="UPOV Logo" class="logo-svg">
+      </div>
+      
+      <!-- Right Content -->
+      <div class="right-content">
+        
+        <!-- Description -->
+        <p class="description">{{ description }}</p>
+        
+        <!-- Social Media Links -->
+        <div class="social-media">
+          <a 
+            *ngFor="let link of socialLinks"
+            class="social-link"
+            [class]="'social-' + link.type"
+            [href]="link.url"
+            (click)="onSocialLinkClick(link)">
+            <img [src]="link.svgIcon" [alt]="link.type" class="social-icon">
+          </a>
+        </div>
+        
+        <!-- Divider -->
+        <div class="divider">
+          <div class="line"></div>
+        </div>
+        
+        <!-- Footer Links -->
+        <div class="footer-links">
+          <a 
+            *ngFor="let link of footerLinks"
+            class="footer-link"
+            [href]="link.url"
+            (click)="onFooterLinkClick(link)">
+            {{ link.label }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Footer -->
+  <footer *ngIf="device === 'mobile'" class="footer-mobile">
+    <div class="all-content">
+      
+      <!-- Logo with SVG -->
+      <div class="logo">
+        <img [src]="logoPath" alt="UPOV Logo" class="logo-svg">
+      </div>
+      
+      <!-- Right Content -->
+      <div class="right-content">
+        
+        <!-- Description -->
+        <p class="description">{{ description }}</p>
+        
+        <!-- Social Media Links -->
+        <div class="social-media">
+          <a 
+            *ngFor="let link of socialLinks"
+            class="social-link"
+            [class]="'social-' + link.type"
+            [href]="link.url"
+            (click)="onSocialLinkClick(link)">
+            <img [src]="link.svgIcon" [alt]="link.type" class="social-icon">
+          </a>
+        </div>
+        
+        <!-- Divider -->
+        <div class="divider">
+          <div class="line"></div>
+        </div>
+        
+        <!-- Footer Links -->
+        <div class="footer-links">
+          <a 
+            *ngFor="let link of footerLinks"
+            class="footer-link"
+            [href]="link.url"
+            (click)="onFooterLinkClick(link)">
+            {{ link.label }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
